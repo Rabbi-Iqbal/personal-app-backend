@@ -1,13 +1,16 @@
-
 import { Blog } from "../models";
 
 const saveToDB = async (data: any) => {
-
   const blog = new Blog(data);
-  const blogRecord = await blog.save()
-  return blogRecord 
-}
+  const blogRecord = await blog.save();
+  return blogRecord;
+};
 
-export default  {
-    saveToDB
-}
+const getAllBlogs = async () => {
+  const blogs = await Blog.find({});
+  return blogs;
+};
+export default {
+  saveToDB,
+  getAllBlogs,
+};

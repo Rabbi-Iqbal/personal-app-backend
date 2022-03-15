@@ -2,10 +2,11 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const blogSchema = new Schema({
-  title: String, 
+  title: String,
   author: String,
   body: String,
   hidden: Boolean,
+  image: String,
   status: {
     type: String,
     default: "Draft",
@@ -17,7 +18,7 @@ const blogSchema = new Schema({
   },
   updatedAt: {
     type: Date,
-    required:'UpdateAt is a required field'
+    default: Date.now,
   },
   publishedAt: {
     type: Date,
