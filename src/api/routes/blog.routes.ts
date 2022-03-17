@@ -22,8 +22,8 @@ const upload = multer({ storage });
 
 const router = express.Router();
 
+router.get("/blog/:id", blogCtrl.read);
 router.get("/blogs", blogCtrl.list);
-
 router.post("/blog", upload.single("image"), blogCtrl.create);
 
 export default router;
