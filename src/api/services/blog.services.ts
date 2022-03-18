@@ -1,5 +1,4 @@
 import { Blog } from "../models";
-import mongoose from "mongoose";
 
 const findBlogById = async (id: string) => {
   try {

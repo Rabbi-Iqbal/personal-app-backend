@@ -17,6 +17,7 @@ const list = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
+  console.log(req.body)
   const data = { ...req.body, image: normalize(req.file?.path || "") };
   try {
     const blog = await blogService.saveToDB(data);

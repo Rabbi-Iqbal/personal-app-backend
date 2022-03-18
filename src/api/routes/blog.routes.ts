@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import fs from "fs";
 import { blogCtrl } from "../controllers";
+import { authMiddleware } from "../middlewares";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,6 +25,6 @@ const router = express.Router();
 
 router.get("/blog/:id", blogCtrl.read);
 router.get("/blogs", blogCtrl.list);
-router.post("/blog", upload.single("image"), blogCtrl.create);
+router.post("/blog", authMiddleware.requireSingIn, upload.single("image"), blogCtrl.create);
 
 export default router;
